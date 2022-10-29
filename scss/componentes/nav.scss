@@ -1,0 +1,17 @@
+.nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    width: 100%;
+    .logo{
+        display: flex;
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        align-items: center;
+        gap: 5px;
+        .money{
+            color: green;
+            font-size: 40px;
+        }
+    }
+}
