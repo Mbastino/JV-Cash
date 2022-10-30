@@ -32,5 +32,5 @@ while (escogioBanco) {
     } else {
         seleccionBanco = parseInt(prompt('Selecciona una de las opciones correctas 1.Banco de Cordoba 2.BBVA 3.ICBC'))
     }
-    
 }
+console.log(infoBanco)
