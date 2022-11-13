@@ -1,3 +1,11 @@
+/* class Usuario {
+    constructor(nombreyapellido,telefono,email){
+        this.nombreyapellido = nombreyapellido
+        this.telefono =  telefono
+        this.email = email
+    }
+}
+ */
 class Banco {
     constructor(id,nombre, tasa12, tasa24, tasa36, tasa48) {
         this.id = id
@@ -8,33 +16,49 @@ class Banco {
         this.tasa48 = tasa48
     }   
 }
-const bankCordoba = new Banco(1, 'Banco de Cordoba', 12, 21, 36, 42)
-const bbva = new Banco(2, 'BBVA', 14, 24, 35, 45)
-const icbc = new Banco(3, 'ICBC', 15, 23, 37, 44)
+
+const bankCordoba = new Banco(0, 'Banco de Cordoba', 12, 21, 36, 42)
+const bbva = new Banco(1, 'BBVA', 14, 24, 35, 45)
+const icbc = new Banco(2, 'ICBC', 15, 23, 37, 44)
+const jvcash = new Banco(3, 'JV Cash', 17, 26, 39, 50)
  
-console.log(bankCordoba, bbva, icbc)
+const bancos = [bankCordoba,bbva,icbc]
 
-let seleccionBanco = parseInt(prompt('Ingresa el banco con el que deseas trabajar 1.Banco de Cordoba 2.BBVA 3.ICBC'))
+bancos.push(jvcash)
+/* console.log(bancos) */
 
-/* console.log(seleccionBanco) */
+let bancoOfrecidos = 'Ingresa el banco con el que deseas trabajar: '
+
+function trabajarCon(){
+    for (bank of bancos){
+        bancoOfrecidos +=` \n ${bank.id} - ${bank.nombre}: \n Tasa para 12 cuotas: ${bank.tasa12}% \n Tasa para 24 cuotas: ${bank.tasa24}% \n Tasa para 36 cuotas: ${bank.tasa36}% \n Tasa para 48 cuotas: ${bank.tasa48}% `
+    }
+
+    let respuesta = parseInt(prompt(bancoOfrecidos)) 
+}
+
+trabajarCon()
 
 let escogioBanco = false 
 let infoBanco
 
-while (escogioBanco === false) {
-    if (seleccionBanco === bankCordoba.id){
-        escogioBanco = true
+while (trabajarCon === false) {
+    if (bancoOfrecidos === bankCordoba.id){
+        trabajarCon = true
         infoBanco = bankCordoba
-    } else if(seleccionBanco === bbva.id){
-        escogioBanco = true
+    } else if(bancoOfrecidos === bbva.id){
+        trabajarCon = true
         infoBanco = bbva
-    } else if(seleccionBanco === icbc.id){
-        escogioBanco = true
+    } else if(bancoOfrecidos === icbc.id){
+        trabajarCon = true
         infoBanco = icbc
+    } else if(bancoOfrecidos === jvcash.id){
+        trabajarCon = true
+        infoBanco = jvcash
     } else {
-        seleccionBanco = parseInt(prompt('Selecciona una de las opciones correctas 1.Banco de Cordoba 2.BBVA 3.ICBC'))
+        bancoOfrecidos = parseInt(prompt('Selecciona una de las opciones correctas 1.Banco de Cordoba 2.BBVA 3.ICBC 4.JV Cash'))
     }
-}
+} 
 
 const montoPrestamo = parseInt(prompt('Imgresa el monto que necesita'))
 
@@ -43,11 +67,11 @@ const cuotaMensual = (valor,interes,meses) => {
     return cuota
 }  
 
+
 const cuota12 = cuotaMensual(montoPrestamo,infoBanco.tasa12,12)
 const cuota24 = cuotaMensual(montoPrestamo,infoBanco.tasa24,24)
 const cuota36 = cuotaMensual(montoPrestamo,infoBanco.tasa36,36)
 const cuota48 = cuotaMensual(montoPrestamo,infoBanco.tasa48,48)
 
-/* console.log(cuota12,cuota24,cuota36,cuota48)*/
 
 alert(`Las opciones que te ofrece ${infoBanco.nombre} son: 12 cuotas de ${cuota12.toFixed(2)} pesos - 24 cuotas de ${cuota24.toFixed(2)} pesos - 36 cuotas de ${cuota36.toFixed(2)} pesos - 48 cuotas de ${cuota48.toFixed(2)} pesos`)
