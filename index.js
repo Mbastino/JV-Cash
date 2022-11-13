@@ -37,7 +37,7 @@ while (escogioBanco === false) {
     } else if(seleccionBanco === bancos[2].id){
         escogioBanco = true
         infoBanco = bancos[2]
-    } else if(seleccionBanco === bancos[3].i){
+    } else if(seleccionBanco === bancos[3].id){
         escogioBanco = true
         infoBanco = bancos[3]
     } else {
