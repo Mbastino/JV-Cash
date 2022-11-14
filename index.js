@@ -13,7 +13,6 @@ const bbva = new Banco(1, 'BBVA', 14, 24, 35, 45)
 const icbc = new Banco(2, 'ICBC', 15, 23, 37, 44)
 const jvcash = new Banco(3,'JV Cash', 17, 27, 40, 50)
  
-/* console.log(bankCordoba, bbva, icbc) */
 
 const bancos = [bankCordoba,bbva,icbc]
 
@@ -57,6 +56,9 @@ const cuota24 = cuotaMensual(montoPrestamo,infoBanco.tasa24,24)
 const cuota36 = cuotaMensual(montoPrestamo,infoBanco.tasa36,36)
 const cuota48 = cuotaMensual(montoPrestamo,infoBanco.tasa48,48)
 
-/* console.log(cuota12,cuota24,cuota36,cuota48)*/
+console.log(cuota12,cuota24,cuota36,cuota48)
 
-alert(`Las opciones que te ofrece ${infoBanco.nombre} son: 12 cuotas de ${cuota12.toFixed(2)} pesos - 24 cuotas de ${cuota24.toFixed(2)} pesos - 36 cuotas de ${cuota36.toFixed(2)} pesos - 48 cuotas de ${cuota48.toFixed(2)} pesos`)
+alert(`Las opciones que te ofrece ${infoBanco.nombre} son: 12 cuotas de ${cuota12.toFixed(2)} pesos - 24 cuotas de ${cuota24.toFixed(2)} pesos - 36 cuotas de ${cuota36.toFixed(2)} pesos - 48 cuotas de ${cuota48.toFixed(2)} pesos`) 
+
+
+ 
